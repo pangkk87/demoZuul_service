@@ -1,0 +1,24 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#对已经注册到euraka的服务名称重命名 此处为：将order-service服务重命名为apigateway
+#重命名是唯一的，后置会覆盖前置，底层是map实现，所以需要结合公司规范来设计路由名称
+zuul:
+  routes:
+    order-service: /apigateway/order/**
+    product-service: /apigateway/product/**
+#忽略掉以-service结尾的服务（在euraka成功注册的服务）
+  ignored-patterns: /*-service/**
+  #处理http请求头为空的问题  zuul的内核会过滤掉 cookie
+  sensitive-headers:
+#通过网关访问服务的方式 忽略掉sid为product-service的服务
+#ignored-services: product-service
