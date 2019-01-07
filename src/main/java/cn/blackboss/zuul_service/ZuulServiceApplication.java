@@ -22,6 +22,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  *   机器网络隔离
  *
  *
+ * 	一般网关以集群部署，前面还会做一层 Nginx + lvs + keepalive 暴露给外网
  */
 
 @SpringBootApplication
