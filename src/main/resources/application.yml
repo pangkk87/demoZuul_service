@@ -19,6 +19,6 @@ zuul:
 #忽略掉以-service结尾的服务（在euraka成功注册的服务）
   ignored-patterns: /*-service/**
   #处理http请求头为空的问题  zuul的内核会过滤掉 cookie
-  sensitive-headers:
-#通过网关访问服务的方式 忽略掉sid为product-service的服务
-#ignored-services: product-service
+  #sensitive-headers:
+  #通过网关访问服务的方式 忽略掉sid为product-service的服务
+  #ignored-services: product-service
